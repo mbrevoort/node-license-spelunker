@@ -19,15 +19,15 @@ To a file
 
 The output will look something like this:
 
-	Project Path /Users/mikebre/development/licnese-spelunker
-	LICENSE FILE REPORT FOR  licnese-spelunker
+	Project Path /Users/mikebre/development/license-spelunker
+	LICENSE FILE REPORT FOR  license-spelunker
 	2 nested dependencies
 	0 without identifiable license(s)
 
 
 	1 ----------------------------------------------------------------------------
 	licnese-spelunker@0.0.0
-	http://npmjs.org/package/licnese-spelunker
+	http://npmjs.org/package/license-spelunker
 
 	"MIT"
 
