@@ -1,13 +1,16 @@
 {
   "name": "license-spelunker",
-  "version": "0.0.0",
-  "description": "",
+  "version": "0.1.0",
+  "description": "Find the licenses of all of you node.js dependencies recursively and create a simple report that includes the license details",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": "",
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mbrevoort/node-license-spelunker.git"
+    },
+  "author": "Mike Brevoort",
   "license": "MIT",
   "dependencies": {
     "async": "~0.2.9"
