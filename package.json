@@ -1,6 +1,6 @@
 {
   "name": "license-spelunker",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Find the licenses of all of you node.js dependencies recursively and create a simple report that includes the license details",
   "main": "index.js",
   "scripts": {
