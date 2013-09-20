@@ -49,15 +49,18 @@ function doLevel(nodePath) {
     count--;
 
     if (count == 0) {
+      var noLicenseFile = modules.filter(function (m) { return m.license === 'NO LICENSE FILE' });
+      var andNoPkgJsonLicense = noLicenseFile.filter(function (m) { return !m.pkgLicense });
       console.log('LICENSE FILE REPORT FOR ', topPkg.name);
       console.log(modules.length + ' nested dependencies')
-      console.log(modules.filter(function (m) { return m.license === 'NO LICENSE FILE' }).length +  ' without identifiable license(s)', '\n\n')
+      console.log(noLicenseFile.length +  ' without identifiable license text')
+      console.log(andNoPkgJsonLicense.length +  ' without even a package.json license declaration', '\n\n')
       modules.forEach(function(m) {
         console.log((modules.indexOf(m)+1) + ' ----------------------------------------------------------------------------');
         console.log(m.name + '@' + m.version);
         console.log(m.url);
         console.log(m.localPath);
-        if (m.pkgLicense) console.log(JSON.stringify(m.pkgLicense));
+        if (m.pkgLicense) console.log('From package.json license property:', JSON.stringify(m.pkgLicense));
         console.log('');
         console.log(m.license);
         console.log('');
@@ -74,7 +77,8 @@ function licenseText (nodePath, cb) {
                                path.join(nodePath, 'LICENSE.md'),
                                path.join(nodePath, 'LICENSE.txt'),
                                path.join(nodePath, 'Readme.md'),
-                               path.join(nodePath, 'README.md')];
+                               path.join(nodePath, 'README.md'),
+                               path.join(nodePath, 'README.markdown')];
 
  var emptyState  = "NO LICENSE FILE";
 
@@ -90,7 +94,7 @@ function licenseText (nodePath, cb) {
         if (err) return logError(err, reduceCb)(err, state);
 
         if (isAReadme) {
-          var match = text.match(/\n.*license[ \t]+\n/i);
+          var match = text.match(/\n[# ]*license[ \t]*\n/i);
           if (match) {
             //console.log(match.input.substring(match.index))
             return reduceCb (null, 'FROM README:\n' + match.input.substring(match.index));
