@@ -76,6 +76,9 @@ function licenseText (nodePath, cb) {
                                path.join(nodePath, 'LICENCE'),
                                path.join(nodePath, 'LICENSE.md'),
                                path.join(nodePath, 'LICENSE.txt'),
+                               path.join(nodePath, 'LICENSE-MIT'),
+                               path.join(nodePath, 'LICENSE-BSD'),
+                               path.join(nodePath, 'MIT-LICENSE.txt'),
                                path.join(nodePath, 'Readme.md'),
                                path.join(nodePath, 'README.md'),
                                path.join(nodePath, 'README.markdown')];
